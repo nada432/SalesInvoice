@@ -175,17 +175,17 @@ public class Controller implements ActionListener, ListSelectionListener {
             int result = filechoose.showSaveDialog(frame);
             if (result == JFileChooser.APPROVE_OPTION) {
                 File headerFile = filechoose.getSelectedFile();
-                FileWriter headerfilewriter = new FileWriter(headerFile);
-                headerfilewriter.write(headers);
-                headerfilewriter.flush();
-                headerfilewriter.close();
+                try (FileWriter headerfilewriter = new FileWriter(headerFile)) {
+                    headerfilewriter.write(headers);
+                    headerfilewriter.flush();
+                }
                 result = filechoose.showSaveDialog(frame);
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File lineFile = filechoose.getSelectedFile();
-                    FileWriter linefilewriter = new FileWriter(lineFile);
-                    linefilewriter.write(lines);
-                    linefilewriter.flush();
-                    linefilewriter.close();
+                    try (FileWriter linefilewriter = new FileWriter(lineFile)) {
+                        linefilewriter.write(lines);
+                        linefilewriter.flush();
+                    }
                 }
             }
         } catch (Exception ex) {
