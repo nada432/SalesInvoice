@@ -2,6 +2,7 @@ com\mycompany\sales\SALES.class
 model\SalesInvoice.class
 model\SalesInvoicesTableModel.class
 view\SalesInvoiceFrame$1.class
+model\FileOperations.class
 controller\Controller.class
 view\SalesInvoiceDialog.class
 view\SalesInvoiceFrame.class
